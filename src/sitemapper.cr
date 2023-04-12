@@ -37,10 +37,11 @@ module Sitemapper
   # end
   # ```
   def self.build(
+    host : String = config.host,
     max_urls : Int32 = config.max_urls,
     use_index : Bool = config.use_index
   ) : Array(Hash(String, String))
-    builder = Sitemapper::InMemoryBuilder.new(max_urls, use_index)
+    builder = Sitemapper::InMemoryBuilder.new(host, max_urls, use_index)
     yield builder
     builder.generate
   end
@@ -54,12 +55,13 @@ module Sitemapper
   # end
   # ```
   def self.stream(
+    host : String = config.host,
     max_urls : Int32 = config.max_urls,
     use_index : Bool = config.use_index,
     storage : Sitemapper::Storage.class = config.storage,
     storage_path : String = config.storage_path
   ) : Void
-    builder = Sitemapper::StreamBuilder.new(max_urls, use_index, storage, storage_path)
+    builder = Sitemapper::StreamBuilder.new(host, max_urls, use_index, storage, storage_path)
     yield builder
     builder.finish
   end
