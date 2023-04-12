@@ -15,7 +15,7 @@ module Sitemapper
 
     getter paginator : Paginator
 
-    def initialize(@host : String, @max_urls : Int32, @use_index : Bool)
+    def initialize(@max_urls : Int32, @use_index : Bool)
       @paginator = Paginator.new(limit: @max_urls)
       @sitemaps = [] of Hash(String, String)
     end

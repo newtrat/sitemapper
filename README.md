@@ -58,7 +58,7 @@ Sitemapper.store(sitemaps, "./public/sitesmaps")
 You can also pass options to `build`.
 
 ```crystal
-Sitemapper.build(host: "your host", max_urls: 20, use_index: true) do |builder|
+Sitemapper.build(max_urls: 20, use_index: true) do |builder|
   builder.add("/whatever", lastmod: Time.utc)
 end
 ```
@@ -150,7 +150,7 @@ Sitemapper.stream do |builder|
 end
 ```
 
-`Sitemapper.stream` accepts optional arguments for `host`, `max_url`, `use_index`, `storage`, and `storage_path`.All of them default to the options saved inside `Sitemapper.configure`.
+`Sitemapper.stream` accepts optional arguments for `max_urls`, `use_index`, `storage`, and `storage_path`.All of them default to the options saved inside `Sitemapper.configure`.
 
 ## Notifying Search Engines
 

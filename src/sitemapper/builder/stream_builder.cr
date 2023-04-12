@@ -7,7 +7,7 @@ module Sitemapper
   class StreamBuilder < Builder
     getter paginator : Paginator
 
-    def initialize(@host : String, @max_urls : Int32, @use_index : Bool, @storage : Sitemapper::Storage.class, @storage_path : String)
+    def initialize(@max_urls : Int32, @use_index : Bool, @storage : Sitemapper::Storage.class, @storage_path : String)
       @paginator = Paginator.new(limit: @max_urls)
       @filenames = [] of String
       @current_page = 1
